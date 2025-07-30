@@ -8,7 +8,7 @@ Players.PlayerAdded:Connect(function(player)
         screenGui.Name = "FakeBSOD"
         screenGui.Parent = player.PlayerGui
         screenGui.IgnoreGuiInset = true
-        screenGui.DisplayOrder = 999
+        screenGui.DisplayOrder = 999 
         
         local background = Instance.new("Frame")
         background.Size = UDim2.new(1, 0, 1, 0)
