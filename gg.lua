@@ -8,13 +8,13 @@ Players.PlayerAdded:Connect(function(player)
         screenGui.Name = "FakeBSOD"
         screenGui.Parent = player.PlayerGui
         screenGui.IgnoreGuiInset = true
-        screenGui.DisplayOrder = 999 
+        screenGui.DisplayOrder = 999
         
         local background = Instance.new("Frame")
         background.Size = UDim2.new(1, 0, 1, 0)
         background.BackgroundColor3 = Color3.fromRGB(0, 43, 128)
         background.Parent = screenGui
-       
+        
         local errorText = Instance.new("TextLabel")
         errorText.Size = UDim2.new(0.8, 0, 0.8, 0)
         errorText.Position = UDim2.new(0.1, 0, 0.1, 0)
@@ -29,7 +29,7 @@ A problem has been detected...
         
         local clickDetector = Instance.new("TextButton")
         clickDetector.Size = UDim2.new(0.1, 0, 0.1, 0)
-        clickDetector.Position = UDim2.new(0, 0, 0.9, 0) 
+        clickDetector.Position = UDim2.new(0, 0, 0.9, 0)
         clickDetector.BackgroundTransparency = 1
         clickDetector.Text = ""
         clickDetector.Parent = background
